@@ -47,7 +47,7 @@ MAIN PROC
        
        ;without Ascii Adjust
        CALL NEWLINE
-       PRINTN "IN SIMPLY: "
+       PRINTN "IN Ascii: "
        MOV AH,2
        MOV DL,SUM
        INT 21H 
