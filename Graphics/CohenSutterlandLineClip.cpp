@@ -22,6 +22,7 @@ int OutCode(double x,double y)
 
 void CohenLineClip(double x0,double y0,double x1,double y1)
 {
+    int xk0 =x0,xk1 = x1,yk0 =y0,yk1 = y1;
     int oout1 = OutCode(x0,y0);
     int oout2 = OutCode(x1,y1);
     int accept = false;
@@ -87,11 +88,17 @@ void CohenLineClip(double x0,double y0,double x1,double y1)
     {
         //Draw Clipped part
 
-        setcolor(RED);
-        rectangle(xmin,ymin,xmax,ymax);
         setcolor(BLUE);
+        line(xk0,yk0,xk1,yk1);
+        rectangle(xmin,ymin,xmax,ymax);
+        setcolor(RED);
         line(x0,y0,x1,y1);
     }
+    else{
+        rectangle(xmin, ymin, xmax, ymax);
+        setcolor(BLUE);
+        line(xk0,yk0,xk1,yk1);
+	}
 }
 
 int main()
@@ -102,9 +109,9 @@ int main()
 
     double x1,x2,y1,y2;
     xmin =100;
-    xmax = 500;
-    ymin = 10;
-    ymax = 300;
+    xmax = 400;
+    ymin = 100;
+    ymax = 400;
 
     x1=50,y1=50,x2=450,y2=300;
     CohenLineClip(x1,y1,x2,y2);

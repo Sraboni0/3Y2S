@@ -68,6 +68,9 @@ void CohenSutherlandLineClipAndDraw(double x0, double y0, double x1, double y1)
 		setcolor(BLUE);
 		line(x0, y0, x1, y1);
 	}
+	else{
+        rectangle(xmin, ymin, xmax, ymax);
+	}
 }
 
 int main() {
@@ -77,9 +80,9 @@ int main() {
 
     double x0, y0, x1, y1;
     xmin = 100;
-    xmax = 500;
-    ymin = 10;
-    ymax = 300;
+    xmax = 400;
+    ymin = 100;
+    ymax = 400;
     x0 = 50, y0 = 50, x1 = 600, y1 = 300;
     CohenSutherlandLineClipAndDraw(x0, y0, x1, y1);
 
