@@ -1,36 +1,44 @@
-#include<bits/stdc++.h>
-#include<graphics.h>
-#include<conio.h>
-using namespace std;
-int main(){
-    int x1, y1, x2, y2;
-    INPUT:
-    cout<<"Enter Start Coordinate: ";
-    cin>>x1>>y1;
-    cout<<"Enter End Coordinate: ";
-    cin>>x2>>y2;
-    if(x1>x2 ){
-        swap(x1,x2);
-        swap(y1,y2);
-    }
-    if((x1<0||x2<0||y1<0||y2<0) ||(abs((y1-y2)/(x1-x2))>1)){
-        cout<<"INVALID INPUT!";
-        goto INPUT;
-    }
-    int gd = DETECT, gm;
-   initgraph(&gd, &gm, "");
-    int m = 2 * (y2 - y1);
-    int sloperror = m - (x2 - x1);
-    for (int x = x1, y = y1; x <= x2; x++){
-        putpixel(x, y, RED);
-        delay(100);
-        sloperror = sloperror + m;
-        if (sloperror >= 0){
-            y++;
-            sloperror = sloperror - 2*(x2 - x1);
+#include <graphics.h>
+
+void plot8CirclePoints(int ox, int oy, int x, int y) {
+    putpixel(ox + x, oy + y, 1);
+    putpixel(ox + y, oy + x, 2);
+    putpixel(ox - x, ox + y, 3);
+    putpixel(ox - y, ox + x, 4);
+    putpixel(ox - x, oy - y, 5);
+    putpixel(ox - y, oy - x, 6);
+    putpixel(ox + x, oy - y, 7);
+    putpixel(ox + y, oy - x, 8);
+}
+
+void plotTriangle(int ox, int oy, int r) {
+    int x = r, y = 0, re = 0;
+    int xc = 1 - 2 * r;
+    int yc = 1;
+
+    while(x >= y) {
+        plot8CirclePoints(ox, oy, x, y);
+        y++;
+        re += yc;
+        yc += 2;
+
+        if(2 * re + xc > 0) {
+            x--;
+            re += xc;
+            xc += 2;
         }
     }
-    getch();
+}
+
+int main() {
+    int gd=DETECT, gm=DETECT;
+	initgraph(&gd,&gm,"");
+    setbkcolor(WHITE);
+
+    int ox = 250, oy = 250, r = 200;
+    plotTriangle(ox, oy, r);
+
+    delay(5000);
     closegraph();
     return 0;
 }
