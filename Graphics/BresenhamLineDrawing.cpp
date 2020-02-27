@@ -20,31 +20,32 @@ void Bresenham(int x1,int x2,int y1,int y2){
     {
         if(p>=0)
         {
-            putpixel(startX,startY,rand()%15);
+            putpixel(startX,startY,15);
             startY++;
             p = p+2*dy - 2*dx;
         }
         else
         {
-            putpixel(startX,startY,rand()%15);
+            putpixel(startX,startY,15);
             p = p+2*dy;
         }
+        delay(10);
         startX++ ;
     }
 }
 int main()
 {
-    int gd = DETECT,gm;
-    initgraph(&gd,&gm,"");
     int x1,x2,y1,y2;
-
     cout<<"Enter First Point: ";
     cin>>x1>>y1;
 
     cout<<"Enter Second Point: ";
     cin>>x2>>y2;
 
-    Bresenham(x1,x2,y1,y2);
+    int gd = DETECT,gm;
+    initgraph(&gd,&gm,"");
+
+    Bresenham(x1,x2,y1,y2);//call function
 
     getch();
     closegraph();
