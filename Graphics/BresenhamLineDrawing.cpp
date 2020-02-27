@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 #include <graphics.h>
 using namespace std;
 
@@ -19,16 +20,16 @@ void Bresenham(int x1,int x2,int y1,int y2){
     {
         if(p>=0)
         {
-            putpixel(x,y,rand()%15);
-            y=y+1;
+            putpixel(startX,startY,rand()%15);
+            startY++;
             p = p+2*dy - 2*dx;
         }
         else
         {
-            putpixel(x,y,rand()%15);
+            putpixel(startX,startY,rand()%15);
             p = p+2*dy;
         }
-        x =x+1;
+        startX++ ;
     }
 }
 int main()
@@ -42,7 +43,7 @@ int main()
 
     cout<<"Enter Second Point: ";
     cin>>x2>>y2;
-    
+
     Bresenham(x1,x2,y1,y2);
 
     getch();
@@ -50,4 +51,3 @@ int main()
 
     return 0;
 }
-g
