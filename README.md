@@ -12,7 +12,11 @@ There are many software to make UML class diagram And UML Case Diagram easily, [
 ```
 ```
 
-## Graphics Task
+## Graphics 
+Codeblocks a Program লেখার জন্য graphics.h হেডারটি Configure করতে হয় । সহজে কনফিগার করার জন্য নিচের টিউটোরিয়াল টি ফলো করতে পারেন।
+[Codeblocks Configuration For “graphics.h” Header](https://medium.com/@mdsohanurrahman63/codeblocks-configure-for-graphics-h-header-ed0aa2aac1c0)
+```
+```
 ![Graphics work List](https://github.com/SohanCSERU/3Y2S/blob/master/Images/Graphics.PNG)
 ## Lab Codes
 1. [Random Line Drawing](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/RandomLine.cpp)
