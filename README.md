@@ -4,7 +4,11 @@
 
 - Junit Testing
 - Software Requirement Analysis
-- UML Diagram
+- [UML Diagram ](https://github.com/SohanCSERU/3Y2S/blob/master/Software.md)  
+There are many software to make UML class diagram easily. [Lucidchart](https://www.lucidchart.com/) one Of them. By which we can make UML class diagram , download it in many formate.  
+```
+
+```
 
 ## Graphics Task
 ![Graphics work List](https://github.com/SohanCSERU/3Y2S/blob/master/Images/Graphics.PNG)
