@@ -19,6 +19,8 @@ There are many software to make UML class diagram And UML Case Diagram easily, [
 4. [Cohen- SuterLand Line Clip Algo](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/CohenSutterlandLineClip.cpp) 
 5. [Random Pixel Drawing](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/RandomPixelDraw.cpp)
 
+```
+```
 ## Assembly Task
 ![Assembly Lab Task List](https://github.com/SohanCSERU/3Y2S/blob/master/Images/Capture.PNG)
 ## Lab Codes
@@ -27,10 +29,12 @@ There are many software to make UML class diagram And UML Case Diagram easily, [
 3. [Sum of a Series of Number](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/SumOfNum.asm)
 4. [Factorial](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/Factorial.asm)
 5. [Even Odd Check](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/EvenODDCheck.asm)
-
+```
+```
 ## Operating System Lab Task
 ![OS Lab list](https://github.com/SohanCSERU/3Y2S/blob/master/Images/OS.PNG)
-
+```
+```
 ## Networking Lab Task
 ![Network Lab list](https://github.com/SohanCSERU/3Y2S/blob/master/Images/ComputerNetworks.PNG)
 
