@@ -17,3 +17,11 @@
 3. [Sum of a Series of Number](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/SumOfNum.asm)
 4. [Factorial](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/Factorial.asm)
 5. [Even Odd Check](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/EvenODDCheck.asm)
+
+## Networking Lab Task
+![Network Lab list](https://github.com/SohanCSERU/3Y2S/blob/master/Images/ComputerNetworks.PNG)
+
+
+
+## Operating System Lab Task
+![OS Lab list](https://github.com/SohanCSERU/3Y2S/blob/master/Images/OS.PNG)
