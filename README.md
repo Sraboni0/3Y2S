@@ -4,10 +4,10 @@
 
 - Junit Testing
 - Software Requirement Analysis
-- [UML Diagram ](https://github.com/SohanCSERU/3Y2S/blob/master/Software.md)  
-There are many software to make UML class diagram easily. [Lucidchart](https://www.lucidchart.com/) one Of them. By which we can make UML class diagram , download it in many formate.  
+- [UML Class Diagram ](https://github.com/SohanCSERU/3Y2S/blob/master/Software.md)  
+- [UML Case Diagram ](https://www.youtube.com/watch?v=zid-MVo7M-E&list=PLUoebdZqEHTxNC7hWPPwLsBmWI0KEhZOd&index=2)
+There are many software to make UML class diagram And UML Case Diagram easily, [Lucidchart](https://www.lucidchart.com/) one Of them. By which we can make UML class diagram , download Result it in many formate.  
 ```
-
 ```
 
 ## Graphics Task
