@@ -3,6 +3,8 @@
 ## Software Engineering Lab Task
 
 - Junit Testing
+Unit Testing is a process of test a small amount of part in a program.Generally it tests function or methods.  
+For Example [Junit Testing Code](https://github.com/SohanCSERU/3Y2S/tree/master/Software%20Engg/JunitTesting)
 - Software Requirement Analysis
 - [UML Class Diagram ](https://github.com/SohanCSERU/3Y2S/blob/master/Software.md)  
 - [UML Case Diagram ](https://www.youtube.com/watch?v=zid-MVo7M-E&list=PLUoebdZqEHTxNC7hWPPwLsBmWI0KEhZOd&index=2)
