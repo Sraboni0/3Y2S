@@ -1,6 +1,6 @@
 # Software Engineering
 ## UML Diagram
-To learn UML class diagram you can Follow a Tutorial [UML Class Diagram Tutorial](https://www.youtube.com/watch?v=UI6lqHOVHic&list=PL_RvSWIduMYEZd6M7M0e5vSM_e0Jw5hUJ&index=1)
+To learn UML class diagram , you can Follow some Video [UML Class Diagram Video Tutorial](https://www.youtube.com/watch?v=UI6lqHOVHic&list=PL_RvSWIduMYEZd6M7M0e5vSM_e0Jw5hUJ&index=1)
 ## Let's a Example for zoo System
 ### Three basic Part of Class Diagram
 ![Style](https://github.com/SohanCSERU/3Y2S/blob/master/Images/Style.PNG)
