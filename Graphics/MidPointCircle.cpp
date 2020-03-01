@@ -2,31 +2,35 @@
 #include <graphics.h>
 using namespace std;
 
-void MidPointCircle(int x0,int y0,int radius)
+void MidPointCircle(int xinit,int yinit,int radius)
 {
     int x = radius;
-    int y=0,error =0;
+    int y=0;
+    int RoundError = 1 - radius;
+
 
     while(x>=y)
     {
-        putpixel(x0 + x,y0 + y,1);
-        putpixel(x0 + y,y0 + x,2);
-        putpixel(x0 - y,y0 + x,3);
-        putpixel(x0 - x,y0 + y,4);
-        putpixel(x0 - x,y0 - y,5);
-        putpixel(x0 - y,y0 - x,6);
-        putpixel(x0 + y,y0 - x,7);
-        putpixel(x0 + x,y0 - y,8);
+        putpixel(xinit + x,yinit + y,1);
+        putpixel(xinit - x,yinit - y,2);
 
-        if(error<=0)
-        {
-            y = y+1;
-            error = error +2*y +1;
-        }
-        else{
+        putpixel(xinit + y,yinit + x,3);
+        putpixel(xinit - y,yinit - x,4);
+
+        putpixel(xinit - x,yinit + y, 5);
+        putpixel(xinit + x,yinit - y, 6);
+
+        putpixel(xinit - y,yinit + x, 7);
+        putpixel(xinit + y,yinit - x, 8);
+
+
+        if(RoundError<=0){
+            RoundError += 2*y + 1;
+        }else{
+            RoundError += 2*(y-x)+1;
             x =x-1;
-            error = error - 2*x +1;
         }
+        y++;
     }
 }
 

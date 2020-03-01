@@ -2,46 +2,51 @@
 #include <graphics.h>
 using namespace std;
 
-void Bresenham(int x1,int x2,int y1,int y2)
+void MidPointCircle(int xinit,int yinit,int radius)
 {
-    int dx,dy,decisionP,startX,startY;
+    int x = radius;
+    int y=0;
+    int RoundError = 1 - radius;
 
-    dx = x2-x1;
-    dy = y2-y1;
 
-    startX = x1;
-    startY = y1;
+    while(x>=y)
+    {
+        putpixel(xinit + x,yinit + y,1);
+        putpixel(xinit - x,yinit - y,2);
 
-    decisionP = 2*dy -dx;
+        putpixel(xinit + y,yinit + x,3);  
+        putpixel(xinit - y,yinit - x,4);
+        
+        putpixel(xinit - x,yinit + y, 5);
+        putpixel(xinit + x,yinit - y, 6);
 
-    while(startX<x2){
-        if(decisionP>=0){
-            putpixel(startX,startY,15);
-            startY++;
-            decisionP += 2*dy - 2*dx;
+        putpixel(xinit - y,yinit + x, 7);
+        putpixel(xinit + y,yinit - x, 8);
+        
+
+        if(RoundError<=0){
+            RoundError += 2*y + 1;
+        }else{
+            RoundError += 2*(y-x)+1;
+            x =x-1;
         }
-        else{
-            putpixel(startX,startY,15);
-            decisionP += 2*dy ;
-        }
-        delay(10);
-        startX++;
+        y++;
     }
 }
 
 int main()
 {
-    int x1,x2,y1,y2;
-    cout<<"Enter First Point: ";
-    cin>>x1>>y1;
+    int x,y,radius;
 
-    cout<<"Enter Second Point: ";
-    cin>>x2>>y2;
+    cout<<"Enter Radius of Circle: ";
+    cin>>radius;
+    cout<<"Enter Co-ordinate of Center: ";
+    cin>>x>>y;
 
     int gd = DETECT,gm;
     initgraph(&gd,&gm,"");
 
-    Bresenham(x1,x2,y1,y2);//call function
+    MidPointCircle(x,y,radius);
 
     getch();
     closegraph();
