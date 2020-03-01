@@ -1,45 +1,50 @@
-#include <graphics.h>
 #include <bits/stdc++.h>
+#include <graphics.h>
 using namespace std;
 
-double power(double a,double b)
+void Bresenham(int x1,int x2,int y1,int y2)
 {
-    double result=1;
-    for(int i=0;i<b;i++)
-    {
-        result*=a;
+    int dx,dy,decisionP,startX,startY;
+
+    dx = x2-x1;
+    dy = y2-y1;
+
+    startX = x1;
+    startY = y1;
+
+    decisionP = 2*dy -dx;
+
+    while(startX<x2){
+        if(decisionP>=0){
+            putpixel(startX,startY,9);
+            startY++;
+            decisionP += 2*dy - 2*dx;
+        }
+        else{
+            putpixel(startX,startY,7);
+            decisionP += 2*dy ;
+        }
+        delay(10);
+        startX++;
     }
-    return result;
-}
-
-void beizier(int x[],int y[])
-{
-    for(double i=0;i<1.0;i+=0.00005)
-    {
-        double x1=x[0]*power(1-i,3)+x[1]*3*power(1-i,2)*i+x[2]*3*power(1-i,1)*i*i+x[3]*power(i,3);
-        double y1=y[0]*power(1-i,3)+y[1]*3*power(1-i,2)*i+y[2]*3*power(1-i,1)*i*i+y[3]*power(i,3);
-        putpixel(x1,y1,RED);
-    }
-
-    for(int i=0;i<4;i++)
-        putpixel(x[0],y[0],BLACK);
-
-    delay(5000);
 }
 
 int main()
 {
-    int gd=DETECT,gm=DETECT;
+    int x1,x2,y1,y2;
+    cout<<"Enter First Point: ";
+    cin>>x1>>y1;
+
+    cout<<"Enter Second Point: ";
+    cin>>x2>>y2;
+
+    int gd = DETECT,gm;
     initgraph(&gd,&gm,"");
 
-    setbkcolor(WHITE);
+    Bresenham(x1,x2,y1,y2);//call function
 
-    int x[10],y[10];
+    getch();
+    closegraph();
 
-    x[0]=0,y[0]=10;
-    x[1]=100,y[1]=200;
-    x[2]=400,y[2]=400;
-    x[3]=600,y[3]=100;
-
-    beizier(x,y);
+    return 0;
 }
