@@ -16,12 +16,12 @@ void Bresenham(int x1,int x2,int y1,int y2)
 
     while(startX<x2){
         if(decisionP>=0){
-            putpixel(startX,startY,9);
+            putpixel(startX,startY,15);
             startY++;
             decisionP += 2*dy - 2*dx;
         }
         else{
-            putpixel(startX,startY,7);
+            putpixel(startX,startY,15);
             decisionP += 2*dy ;
         }
         delay(10);

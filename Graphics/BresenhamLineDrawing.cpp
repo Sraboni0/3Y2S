@@ -20,16 +20,16 @@ void Bresenham(int x1,int x2,int y1,int y2){
     {
         if(p>=0)
         {
-            putpixel(startX,startY,15);
+            putpixel(startX,startY,9);
             startY++;
             p = p+2*dy - 2*dx;
         }
         else
         {
-            putpixel(startX,startY,15);
+            putpixel(startX,startY,9);
             p = p+2*dy;
         }
-        delay(10);
+        delay(5);
         startX++ ;
     }
 }
