@@ -25,7 +25,7 @@ Codeblocks a Program লেখার জন্য graphics.h হেডারট�
 3. [Mid-Point Circle Drawing Algo](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/MidPointCircle.cpp)
 4. [Cohen- SuterLand Line Clip Algo](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/CohenSutterlandLineClip.cpp) 
 5. [Random Pixel Drawing](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/RandomPixelDraw.cpp)
-
+6. [Bezier Curve Drawing For 4 Point](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/BezierCurve.cpp)
 ```
 ```
 ## Assembly Task
