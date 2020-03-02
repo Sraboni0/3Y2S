@@ -15,9 +15,8 @@ MAIN PROC
     LEA DX,MSG
     INT 21H
     
-    ;INPUT STRING
     MOV SI,0
-    MOV AH,1
+    MOV AH,1  ;INPUT STRING
     
     INPUT:
         INT 21H
@@ -27,7 +26,8 @@ MAIN PROC
         INC SI
         JMP INPUT
     NEXT:
-          MOV AH,2
+    
+        MOV AH,2
         MOV DL,0DH
         INT 21H
         MOV DL,0AH
