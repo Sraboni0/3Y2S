@@ -36,6 +36,7 @@ void CohenLineClip(double x0,double y0,double x1,double y1)
         }
         else if(oout1 & oout2)
         {
+            cout<<"Outside ."<<endl;
             break; //two endpoint Outsize
         }
         else
@@ -113,7 +114,7 @@ int main()
     ymin = 100;
     ymax = 400;
 
-    x1=50,y1=50,x2=450,y2=300;
+    x1=50,y1=50,x2=450,y2=30;
     CohenLineClip(x1,y1,x2,y2);
 
     delay(5000);
