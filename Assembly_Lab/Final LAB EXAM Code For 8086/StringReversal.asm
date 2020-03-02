@@ -1,8 +1,8 @@
-                      .MODEL SMALL
+.MODEL SMALL
 .STACK 100H
 .DATA
     MSG DB "ENTER A STRING: $"
-    MSG2 DB "CASE CONVERTED STRING: $"
+    MSG2 DB "REVERSE STRING: $"
     STR DB 80 DUP(?)
 .CODE
 
@@ -22,7 +22,7 @@ MAIN PROC
     INPUT:
         INT 21H
         CMP AL,0DH
-        JZ NEXT
+        JE NEXT
         MOV STR[SI],AL
         INC SI
         JMP INPUT
