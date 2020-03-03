@@ -28,14 +28,14 @@ Codeblocks a Program লেখার জন্য graphics.h হেডারট�
 6. [Bezier Curve Drawing For 4 Point](https://github.com/SohanCSERU/3Y2S/blob/master/Graphics/BezierCurve.cpp)
 ```
 ```
-## Assembly Task
-![Assembly Lab Task List](https://github.com/SohanCSERU/3Y2S/blob/master/Images/Capture.PNG)
-## Lab Codes
+## Assembly Lab Codes
 1. [String Case Conversion](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/StringCaseConversion.asm)
 2. [String Reversal](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/StringReversal.asm)
 3. [Sum of a Series of Number](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/SumOfNum.asm)
 4. [Factorial](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/Factorial.asm)
 5. [Even Odd Check](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/EvenODDCheck.asm)
+6. [Even Odd Check with Index Print](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/EvenODD%20Check%20%20Index%20Print.asm)
+7. [Number of Digit And Space Conut](https://github.com/SohanCSERU/3Y2S/blob/master/Assembly_Lab/Final%20LAB%20EXAM%20Code%20For%208086/Digit%20And%20Space%20Count%20From%20String.asm)
 ```
 ```
 ## Operating System Lab Task
