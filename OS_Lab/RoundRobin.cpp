@@ -8,6 +8,7 @@ int main()
 
     printf("Enter total number of process : ");
     scanf("%d",&n);
+
     for(i=0;i<n;i++)
     {
         printf("\nEnter the burst time of %d process : ",i+1);
@@ -22,26 +23,27 @@ int main()
         {
             i=(i+1)%n;
         }
-    bursttime[i]--;
-    if(bursttime[i]==0)
-    {
-        turnaroundtime[i] = time+1;
-        count++;
-    }
+        bursttime[i]--;
+        if(bursttime[i]==0)
+        {
+            turnaroundtime[i] = time+1;
+            count++;
+        }
          i = (i+1)%n;
     }
- printf("\nprocess   burst   waitng   turnaround   ");
- for(i=0;i<n;i++)
- {  waitingtime[i] = turnaroundtime[i] - b[i];
-    printf("\n   %d \t    %d \t     %d \t    %d",i+1,b[i],waitingtime[i],turnaroundtime[i]);
-    totalwt = totalwt + waitingtime[i];
-    totalTT = totalTT + turnaroundtime[i];
+    printf("\nprocess   burst   waitng   turnaround   ");
+    for(i=0;i<n;i++)
+    {
+        waitingtime[i] = turnaroundtime[i] - b[i];
+        printf("\n   %d \t    %d \t     %d \t    %d",i+1,b[i],waitingtime[i],turnaroundtime[i]);
+        totalwt = totalwt + waitingtime[i];
+        totalTT = totalTT + turnaroundtime[i];
  }
- printf("\n  %d  %f  %f",n,totalwt,totalTT);
- avgwt = totalwt / n;
- avgtt = totalTT / n;
- printf("\nAverage waiting time is %f",avgwt);
- printf("\nAverage turnaround time is %f ",avgtt);
-    
+    printf("\n  %d  %f  %f",n,totalwt,totalTT);
+    avgwt = totalwt / n;
+    avgtt = totalTT / n;
+    printf("\nAverage waiting time is %f",avgwt);
+    printf("\nAverage turnaround time is %f ",avgtt);
+
     return 0;
 }
