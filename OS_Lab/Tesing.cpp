@@ -1,38 +1,58 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+bool sortbySec(const pair<int,int>&a,const pair<int,int>&b)
+{
+    return (a.second<b.second);
+}
 int main()
 {
-    //freopen("file.txt","r",stdin);
-    int pro_n;
-    cout<<"Take input number of process: ";
-    cin>>pro_n;
+    vector< pair<int,int> > pr;
 
-     string Pro_ID[pro_n+5];
-     float Bu_Ti[pro_n+5],Wa_ti[pro_n+5],Tu_ti[pro_n+5],Arri_Ti[pro_n+5],total_tu=0,total_wa=0;
+    int burst_time[20],priority[20],p[20];
+    int wt[20],tat[20],i,j,N,total=0,pos,temp;
+    float avg_wt=0,avg_tat=0;
 
+    cout<<"Enter Number of Process: ";
+    cin>>N;
 
-    cout<<"ProcessID\t ArrivalTime\t BurstTime\n";
-    Tu_ti[0]=0;
-
-    for(int i=1;i<=pro_n;i++)
+    cout<<"\t Burst_time \t priority"<<endl;
+    for (int i = 0; i < N; ++i)
     {
-        cin>>Pro_ID[i]>>Arri_Ti[i]>>Bu_Ti[i];
-
-        Tu_ti[i]=Tu_ti[i-1]+Bu_Ti[i];
-        Wa_ti[i]=Tu_ti[i]-Bu_Ti[i];
-        total_tu+=Tu_ti[i];
-        total_wa+=Wa_ti[i];
+        cout<<"Process "<<i+1<<": ";
+        cin>>burst_time[i]>>priority[i];
+        pr.push_back(make_pair(i,priority[i]));
+        //p[i] = i+1;
     }
 
-    cout<<"ProcessID\tArrivalTime\tBurstTime\tWatingTime\tTurnaroundTime\n";
-    for(int i=1;i<=pro_n;i++)
+    sort(pr.begin(),pr.end(),sortbySec);
+
+    for (int i = 0; i < pr.size(); ++i)
     {
-        cout<<Pro_ID[i]<<"\t\t"<<Arri_Ti[i]<<"\t\t"<<Bu_Ti[i]<<"\t\t"<<Wa_ti[i]<<"\t\t"<<Tu_ti[i]<<endl;
+        int tmp = pr[i].first;
+        cout<<pr[i].first<<" "<<burst_time[tmp]<<" "<<pr[i].second<<endl;
+
     }
-    cout<<"average waiting time "<< (float)total_wa/(float)pro_n<<endl;
-    cout<<"Average turnaround time "<<(float)total_tu/(float)pro_n<<endl;
+    wt[pr[0].first]=0;
+    tat[pr[0].first] = burst_time[pr[0].first];
+
+    for (int i = 1; i < N; ++i)
+    {
+        int tmp =pr[i-1].first;
+        int tmp2 = pr[i].first;
+
+        wt[tmp2] =wt[tmp] + burst_time[tmp];
+        //cout<<"Tmp: "<<tmp<<" Waiting: "<<wt[tmp]<<endl;
+        total +=wt[tmp];
+        tat[tmp2] = wt[tmp2]+burst_time[tmp2];
+    }
+
+     cout<<"Process \t   burst_time \t Waiting Time \t Turnaround"<<endl;
+     for (int i = 0; i < N; ++i)
+     {
+         int tmp =pr[i].first;
+         cout<<"P["<<tmp+1<<"]\t\t"<<" "<<burst_time[tmp]<<"\t\t"<<wt[tmp]<<"\t\t"<<tat[tmp]<<endl;
+     }
 
     return 0;
-
 }
