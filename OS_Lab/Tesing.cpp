@@ -3,50 +3,36 @@ using namespace std;
 
 int main()
 {
-    int burst_time[20],p[20],wt[20],tat[20],i,j,n,total=0,pos,temp;
-    float avg_wt,avg_tat;
-    printf("Enter number of process:");
-    scanf("%d",&n);
+    //freopen("file.txt","r",stdin);
+    int pro_n;
+    cout<<"Take input number of process: ";
+    cin>>pro_n;
 
-    printf("\nEnter Burst Time:\n");
-    for(i=0;i<n;i++)
+     string Pro_ID[pro_n+5];
+     float Bu_Ti[pro_n+5],Wa_ti[pro_n+5],Tu_ti[pro_n+5],Arri_Ti[pro_n+5],total_tu=0,total_wa=0;
+
+
+    cout<<"ProcessID\t ArrivalTime\t BurstTime\n";
+    Tu_ti[0]=0;
+
+    for(int i=1;i<=pro_n;i++)
     {
-        printf("Process: %d:",i+1);
-        scanf("%d",&burst_time[i]);
-        p[i]=i+1;
+        cin>>Pro_ID[i]>>Arri_Ti[i]>>Bu_Ti[i];
+
+        Tu_ti[i]=Tu_ti[i-1]+Bu_Ti[i];
+        Wa_ti[i]=Tu_ti[i]-Bu_Ti[i];
+        total_tu+=Tu_ti[i];
+        total_wa+=Wa_ti[i];
     }
 
-    for (int i = 0; i <n; ++i)
+    cout<<"ProcessID\tArrivalTime\tBurstTime\tWatingTime\tTurnaroundTime\n";
+    for(int i=1;i<=pro_n;i++)
     {
-        pos = i;
-        for (int j = i+1; j < n; ++j)
-        {
-            if(burst_time[j]<burst_time[pos])
-                pos=j;
-        }
-        swap(burst_time[pos],burst_time[i]);
-        swap(p[i],p[pos]);
+        cout<<Pro_ID[i]<<"\t\t"<<Arri_Ti[i]<<"\t\t"<<Bu_Ti[i]<<"\t\t"<<Wa_ti[i]<<"\t\t"<<Tu_ti[i]<<endl;
     }
-
-    wt[0] = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        wt[i+1] = wt[i]+burst_time[i];
-        total +=wt[i];
-    }
-    avg_wt=(float)total/n;
-    total=0;
-
-    cout<<"Process \t   burst_time \t Waiting Time \t Turnaround"<<endl;
-    for (int i = 0; i < n; ++i)
-    {
-        tat[i] = burst_time[i] +wt[i];
-        total+=tat[i];
-        cout<<"process: "<<p[i]<<"\t \t"<<burst_time[i]<<"\t\t"<<wt[i]<<"\t\t"<<tat[i]<<endl;
-    }
-    printf("\n\nAverage Waiting Time=%f",avg_wt);
-    printf("\nAverage Turnaround Time=%f\n",avg_tat);
-    avg_tat = (float)total/n;
+    cout<<"average waiting time "<< (float)total_wa/(float)pro_n<<endl;
+    cout<<"Average turnaround time "<<(float)total_tu/(float)pro_n<<endl;
 
     return 0;
+
 }
