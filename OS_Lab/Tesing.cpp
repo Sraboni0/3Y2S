@@ -1,66 +1,78 @@
-#include<bits/stdc++.h>
+ #include<bits/stdc++.h>
 using namespace std;
+
+// Function to find page faults using FIFO
+int pageFaults(int pages[], int n, int capacity)
+{
+	// To represent set of current pages. We use
+	// an unordered_set so that we quickly check
+	// if a page is present in set or not
+	unordered_set<int> s;
+
+	// To store the pages in FIFO manner
+	queue<int> indexes;
+
+	// Start from initial page
+	int page_faults = 0;
+	for (int i=0; i<n; i++)
+	{
+		// Check if the set can hold more pages
+		if (s.size() < capacity)
+		{
+			// Insert it into set if not present
+			// already which represents page fault
+			if (s.find(pages[i])==s.end())
+			{
+				s.insert(pages[i]);
+
+				// increment page fault
+				page_faults++;
+
+				// Push the current page into the queue
+				indexes.push(pages[i]);
+			}
+		}
+
+		// If the set is full then need to perform FIFO
+		// i.e. remove the first page of the queue from
+		// set and queue both and insert the current page
+		else
+		{
+			// Check if current page is not already
+			// present in the set
+			if (s.find(pages[i]) == s.end())
+			{
+				//Pop the first page from the queue
+				int val = indexes.front();
+
+				indexes.pop();
+
+				// Remove the indexes page
+				s.erase(val);
+
+				// insert the current page
+				s.insert(pages[i]);
+
+				// push the current page into
+				// the queue
+				indexes.push(pages[i]);
+
+				// Increment page faults
+				page_faults++;
+			}
+		}
+	}
+
+	return page_faults;
+}
+
+// Driver code
 int main()
 {
-    int bursttime[100],waitingtime[100],turnaroundtime[100],b[100];
-    int i,n,time,count=0;
-    float totalwt=0,totalTT=0,avgwt,avgtt;
-    int timeSlice=2;
-    bool flag[100];
-
-    printf("Enter total number of process : ");
-    scanf("%d",&n);
-
-    printf("\nEnter the burst time.");
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&bursttime[i]);
-        b[i] = bursttime[i];
-    }
-    int index =0;
-
-    for (int i = 0; i < n; ++i) {
-            turnaroundtime[i]=0;
-            flag[i]=false;
-    }
-
-    int cnt=0;
-    for (int time = 0; count !=n; ++time)
-     {
-
-
-        if(bursttime[index] -timeSlice<0)
-        {
-            cnt+= bursttime[index];
-            bursttime[index]=0;
-        }
-        else if( bursttime[index] == 0  )
-        {
-            if(!flag[index])
-            {
-                flag[index] = true;
-                count++;
-               turnaroundtime[index] = cnt;
-               bursttime[index]=0;
-            }
-
-        }
-        else{
-            bursttime[index] -= timeSlice;
-            cnt+=timeSlice;
-        }
-
-        cout<<"Turn : "<<turnaroundtime[index]<<endl;
-        index = (index+1)%n;
-     }
-
-     printf("Process BurstTime WaitingTime Turnaroundtime\n");
-     for (int i = 0; i < n; ++i)
-     {
-         waitingtime[i] = turnaroundtime[i] - b[i];
-         printf("\n   %d \t    %d \t     %d \t    %d",i+1,b[i],waitingtime[i],turnaroundtime[i]);
-        totalwt = totalwt + waitingtime[i];
-        totalTT = totalTT + turnaroundtime[i];
-     }
-    return 0;
+	int pages[] = {7, 0, 1, 2, 0, 3, 0, 4,
+				2, 3, 0, 3, 2};
+	int n = sizeof(pages)/sizeof(pages[0]);
+	int capacity = 4;
+	cout << pageFaults(pages, n, capacity);
+	return 0;
 }

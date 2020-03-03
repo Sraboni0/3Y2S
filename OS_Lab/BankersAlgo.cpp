@@ -5,8 +5,6 @@ using namespace std;
 
 int main()
 {
-	// P0, P1, P2, P3, P4 are the Process names here
-
 	int n, m;
 	n = 5; // Number of processes
 	m = 3; // Number of resources
@@ -28,7 +26,8 @@ int main()
 	for (int i = 0; i < n; ++i){
 		f[i]=0;
 	}
-	int need[n][m];
+	int need[n][m],checkSafe[n];
+
 	for (int i = 0; i < n; ++i)
 	{
 		for (int j = 0; j < m; ++j)
@@ -55,6 +54,7 @@ int main()
 				}
 				if (flag==0)
 				{
+					checkSafe[i]=true;
 					ans[ind++]=i;   // this is on the sequence
 					for (int y = 0; y < m; ++y)
 					{
@@ -67,12 +67,24 @@ int main()
 	}
 
 
-	cout<<"Following is the safe Sequence\n"<<endl;
-	for (int i = 0; i < (n-1); ++i)
+	int unsafe=false;
+	for (int i = 0; i < n; ++i)
 	{
-		cout<<"P"<<ans[i]<<"-> ";
+		if(checkSafe[i]==false)
+			unsafe = true;
 	}
-	cout<<"P"<<ans[n-1]<<endl;
+	if (unsafe)
+	{
+		cout<<"Following is the Unsafe Sequence\n"<<endl;
+	}
+	else{
+		cout<<"Following is the safe Sequence\n"<<endl;
+		for (int i = 0; i < (n-1); ++i){
+			cout<<"P"<<ans[i]<<"-> ";
+		}
+		cout<<"P"<<ans[n-1]<<endl;
+	}
+
 
 	return 0;
 }
