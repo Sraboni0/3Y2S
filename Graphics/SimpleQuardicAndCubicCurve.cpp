@@ -23,8 +23,11 @@ void CubicCurve(int x[4],int y[4])
     }
 
     //For Checking the Main Four Point by Different Color
+    //Not Compoltury part
     for (int i = 0; i < 4; ++i)
     {
+        setfillstyle(SOLID_FILL,WHITE);
+        circle(x[i],y[i],10);
         putpixel(x[i],y[i],RED);
     }
 
@@ -51,6 +54,8 @@ void QuardicCurve(int x[3],int y[3])
     //For Checking the Main Four Point by Different Color
     for (int i = 0; i < 3; ++i)
     {
+        setfillstyle(SOLID_FILL,WHITE);
+        circle(x[i],y[i],10);
         putpixel(x[i],y[i],RED);
     }
 
@@ -75,8 +80,11 @@ void SimpleCurve(int x[2],int y[2])
     }
 
     //For Checking the Main Four Point by Different Color
+    //Not Compoltury part
     for (int i = 0; i < 2; ++i)
     {
+        setfillstyle(SOLID_FILL,WHITE);
+        circle(x[i],y[i],10);
         putpixel(x[i],y[i],RED);
     }
 }
@@ -86,18 +94,22 @@ int main()
 {
     int x[4],y[4];
     x[0] = 10,y[0]=10;  //take input for x0,y0 or for P0
-    x[1] = 100,y[1]=105; //take input for x1,y1 or for P1
-    x[2] = 200,y[2]=20; //take input for x2,y2 or for P2
-    x[3] = 300,y[3]=150;//take input for x3,y3 or for P3
+    x[1] = 100,y[1]=250; //take input for x1,y1 or for P1
+    x[2] = 300,y[2]=20; //take input for x2,y2 or for P2
+    x[3] = 450,y[3]=350;//take input for x3,y3 or for P3
     //This is created For  four Point Cubic curve
 
     int N;
-    cout<<"Enter which Type of curve do you want:
-        \n1. Simple curve 
-        \n2.QuardicCurve
-        \n3.Curve curve \n";
+    cout<<"Enter which Type of curve do you want: "<<endl;
+    cout<<"Simple curve."<<endl;
+    cout<<"2.QuardicCurve."<<endl;
+    cout<<"3.Curve curve."<<endl;
 
     cin>>N;
+    int gd =DETECT,gm;
+    initgraph(&gd,&gm,"");
+
+
     if (N==3){
         CubicCurve(x,y);
     }
@@ -107,11 +119,6 @@ int main()
     else if (N){
         SimpleCurve(x,y);
     }
-    
-    int gd =DETECT,gm;
-    initgraph(&gd,&gm,"");
-
-    bezierCurveDraw(x,y);
 
     delay(5000);
     closegraph();
